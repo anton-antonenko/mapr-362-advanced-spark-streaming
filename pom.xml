@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <groupId>mapr</groupId>
-    <artifactId>SensorStream</artifactId>
+    <artifactId>spark-advanced</artifactId>
     <modelVersion>4.0.0</modelVersion>
-    <name>sfpdapp</name>
+    <name>spark-advanced</name>
     <packaging>jar</packaging>
     <version>1.0</version>
     <properties>
@@ -11,8 +11,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <scala.tools.version>2.11</scala.tools.version>
-        <scala.version>2.11.8</scala.version>
+        <scala.version>2.11.12</scala.version>
         <spark.version>2.4.3</spark.version>
+        <graphframes.version>0.7.0-spark2.4-s_2.11</graphframes.version>
     </properties>
     <repositories>
         <repository>
@@ -21,14 +22,9 @@
             <url>http://scala-tools.org/repo-releases</url>
         </repository>
         <repository>
-            <id>mapr-releases</id>
-            <url>http://repository.mapr.com/maven/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
+            <id>spark-packages</id>
+            <name>spark-packages</name>
+            <url>https://dl.bintray.com/spark-packages/maven/</url>
         </repository>
     </repositories>
     <dependencies>
@@ -53,6 +49,12 @@
             <artifactId>spark-mllib_${scala.tools.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
+        <dependency>
+            <groupId>graphframes</groupId>
+            <artifactId>graphframes</artifactId>
+            <version>${graphframes.version}</version>
+        </dependency>
+
     </dependencies>
     <build>
 
