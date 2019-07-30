@@ -218,8 +218,9 @@ object MlLibExercises {
       val wrongPredictions = spark.sql("select count(*) from labelAndPreds where label != prediction")
 
       val wrongPredictionCount = wrongPredictions.count()
-      val ratioWrong = wrongPredictionCount.toDouble / testData.count()
-      println(s"Wrong predictions: $wrongPredictionCount. Wrong predictions ratio: $ratioWrong")
+      val predictionsCount = labelAndPreds.count()
+      val ratioWrong = wrongPredictionCount.toDouble / predictionsCount
+      println(s"Predictions: $predictionsCount. Wrong predictions: $wrongPredictionCount. Wrong predictions ratio: $ratioWrong")
 
     }
   }
